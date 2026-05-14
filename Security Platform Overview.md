@@ -57,10 +57,11 @@ This ensures:
 - Easier endpoint tracking
 - Better SOC visibility during investigations
 
-📸 Screenshot Placeholder:
-- DHCP range configuration (10.0.0.10 start IP)
-- Virtual network settings
+![Virtual network settings](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/network%20settings.png)
 
+-Virtual network settings
+- DHCP range configuration (10.0.0.10 start IP)
+  
 ---
 
 # 🧱 Lab Architecture
@@ -88,9 +89,8 @@ to update the operating system via the command line
 sudo apt update && sudo apt upgrade -y
 ```
 
-📸 Screenshot Placeholder:
+![kali](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/kali%20vm.png)
 - Kali setup complete
-- System update output
 
 ---
 
@@ -101,9 +101,9 @@ Used as a vulnerable target for attack simulation.
 ## Download Source:
 https://sourceforge.net/projects/metasploitable/
 
-📸 Screenshot Placeholder:
+![meta](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/meta%20vm.png)
+
 - VM login screen
-- IP address output
 
 ---
 
@@ -114,12 +114,13 @@ Used to access dashboards and monitor alerts.
 ## Download Source:
 https://ubuntu.com/download/desktop
 
+
 to update the operating system via the command line
 ```
 sudo apt update && sudo apt upgrade -y
 ```
+![ubuntu](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/ubuntu%20vm.png)
 
-📸 Screenshot Placeholder:
 - Ubuntu desktop
 - Network configuration
 
@@ -132,7 +133,7 @@ Used as a monitored endpoint.
 ##  Download Source:
 https://www.microsoft.com/software-download/windows10
 
-📸 Screenshot Placeholder:
+![windows](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/windows%20vm.png)
 - Windows desktop
 - Network settings
 
@@ -152,7 +153,8 @@ sudo apt update && sudo apt upgrade -y
 curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
 sudo bash wazuh-install.sh -a
 ```
-
+![wazuh innstallation](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/wazuh%20installation.png)
+![wazuh installed](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/wazuh%20installation%20done.png)
 This installs:
 - Manager
 - Indexer
@@ -163,6 +165,7 @@ Verify:
 ```
 sudo systemctl status wazuh-manager
 ```
+![system check](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/wazuh%20server%20check.png)
 
 📸 Screenshot Placeholder:
 - Installation complete
@@ -175,12 +178,10 @@ sudo systemctl status wazuh-manager
 ```
 https://<WAZUH-SERVER-IP>
 ```
-
 Login:
 - admin / generated password
+  ![wazuh dashboard](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/wazuh%20dashboard.png)
 
-📸 Screenshot Placeholder:
-- Login page
 - Dashboard view
 
 ---
@@ -188,14 +189,14 @@ Login:
 # 🐧 Step 7 – Ubuntu Agent Enrollment
 
 ## Install agent
-
+![agentdeploymenttab](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/agent%20deployment%20tab.png)
 ```bash
 curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo gpg --dearmor -o /usr/share/keyrings/wazuh.gpg
 echo "deb [signed-by=/usr/share/keyrings/wazuh.gpg] https://packages.wazuh.com/4.x/apt stable main" | sudo tee /etc/apt/sources.list.d/wazuh.list
 sudo apt update
 sudo apt install wazuh-agent -y
 ```
-
+![agent install](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/ubuntu%20agent%20deployment.png)
 Start:
 
 ```bash
@@ -204,7 +205,7 @@ sudo systemctl enable wazuh-agent
 sudo systemctl start wazuh-agent
 ```
 
-📸 Screenshot Placeholder:
+![ubuntu agent active](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/ubuntu%20agent%20active.png)
 - Agent active in dashboard
 
 ---
@@ -223,10 +224,9 @@ Start service:
 ```powershell
 net start wazuh
 ```
-
-📸 Screenshot Placeholder:
-- Windows agent active
+![both agents active](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/both%20agents%20active.png)
 - Dashboard showing endpoint
+-Both agents active
 
 ---
 
