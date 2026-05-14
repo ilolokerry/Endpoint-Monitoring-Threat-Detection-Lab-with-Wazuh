@@ -1,5 +1,5 @@
 
-# 🛡️ SOC Home Lab Setup – Wazuh SIEM Environment
+# 🛡️ SOC Home Lab Setup – Wazuh SIEM Environment 
 
 ---
 
