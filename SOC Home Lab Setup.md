@@ -40,6 +40,21 @@ Goal: build practical SOC analyst skills using real infrastructure and attack si
 
 ---
 
+# 🧱 Lab Architecture
+All systems are virtual machines deployed inside VMware Workstation.
+---
+
+The environment consists of:
+
+-  Kali Linux (Attacker VM)
+-  Metasploitable 2 (Vulnerable Target)
+-  Ubuntu Desktop 26 (Client)
+-  Windows 10 Pro (Endpoint)
+-  Ubuntu Server 26 (Wazuh Server)
+
+
+---
+
 # 🌐 Step 0 – Network & DHCP Configuration
 
 Before setting up the lab machines, the network was configured for proper IP allocation.
@@ -62,19 +77,6 @@ This ensures:
 -Virtual network settings
 - DHCP range configuration (10.0.0.10 start IP)
   
----
-
-# 🧱 Lab Architecture
-
-The environment consists of:
-
--  Kali Linux (Attacker VM)
--  Metasploitable 2 (Vulnerable Target)
--  Ubuntu Desktop 26 (Client)
--  Windows 10 Pro (Endpoint)
--  Ubuntu Server 26 (Wazuh Server)
-
-All systems are virtual machines deployed inside VMware Workstation.
 ---
 
 # ⚙️ Step 1 – Install Kali Linux
