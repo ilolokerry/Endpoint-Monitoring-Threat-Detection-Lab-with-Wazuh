@@ -15,18 +15,18 @@ It functions as a Security Information and Event Management (SIEM) solution that
 
 Wazuh provides the following security capabilities:
 
-- 📊 Centralized log collection and analysis
-- 🖥️ Endpoint monitoring
-- 🔍 File Integrity Monitoring (FIM)
-- 🚨 Intrusion detection and alerting
-- 🌐 Security event correlation (SIEM functionality)
-- 🧠 Threat intelligence integration
-- 🛡️ Vulnerability detection and assessment
-- 📡 Active response and automation
+-  Centralized log collection and analysis
+-  Endpoint monitoring
+-  File Integrity Monitoring (FIM)
+-  Intrusion detection and alerting
+-  Security event correlation (SIEM functionality)
+-  Threat intelligence integration
+-  Vulnerability detection and assessment
+-  Active response and automation
 
 ---
 
-## 🎯 Why This Lab Was Built
+##  Why This Lab Was Built
 
 This lab was created to simulate a real-world SOC environment where security analysts:
 
@@ -67,19 +67,24 @@ This ensures:
 
 The environment consists of:
 
-- 🐉 Kali Linux (Attacker VM)
-- 💀 Metasploitable 2 (Vulnerable Target)
-- 🐧 Ubuntu Desktop 2026 (Client)
-- 🪟 Windows 10 Pro (Endpoint)
-- 🖥️ Ubuntu Server 2026 (Wazuh SIEM Server)
+-  Kali Linux (Attacker VM)
+-  Metasploitable 2 (Vulnerable Target)
+-  Ubuntu Desktop 26 (Client)
+-  Windows 10 Pro (Endpoint)
+-  Ubuntu Server 26 (Wazuh Server)
 
+All systems are virtual machines deployed inside VMware Workstation.
 ---
 
 # ⚙️ Step 1 – Install Kali Linux
 
 Kali Linux is used for attack simulation and penetration testing.
 
-```bash
+## Download Source:
+https://www.kali.org/get-kali/
+
+to update the operating system via the command line
+```
 sudo apt update && sudo apt upgrade -y
 ```
 
@@ -93,6 +98,9 @@ sudo apt update && sudo apt upgrade -y
 
 Used as a vulnerable target for attack simulation.
 
+## Download Source:
+https://sourceforge.net/projects/metasploitable/
+
 📸 Screenshot Placeholder:
 - VM login screen
 - IP address output
@@ -103,7 +111,11 @@ Used as a vulnerable target for attack simulation.
 
 Used to access dashboards and monitor alerts.
 
-```bash
+## Download Source:
+https://ubuntu.com/download/desktop
+
+to update the operating system via the command line
+```
 sudo apt update && sudo apt upgrade -y
 ```
 
@@ -117,6 +129,9 @@ sudo apt update && sudo apt upgrade -y
 
 Used as a monitored endpoint.
 
+##  Download Source:
+https://www.microsoft.com/software-download/windows10
+
 📸 Screenshot Placeholder:
 - Windows desktop
 - Network settings
@@ -125,7 +140,15 @@ Used as a monitored endpoint.
 
 # 🖥️ Step 5 – Install Wazuh Server
 
-```bash
+## Download Source:
+https://ubuntu.com/download/server
+
+to update the operating system via the command line
+```
+sudo apt update && sudo apt upgrade -y
+```
+
+```To begin wazuh installation
 curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
 sudo bash wazuh-install.sh -a
 ```
@@ -137,7 +160,7 @@ This installs:
 
 Verify:
 
-```bash
+```
 sudo systemctl status wazuh-manager
 ```
 
@@ -164,25 +187,19 @@ Login:
 
 # 🐧 Step 7 – Ubuntu Agent Enrollment
 
+## Install agent
+
 ```bash
+curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo gpg --dearmor -o /usr/share/keyrings/wazuh.gpg
+echo "deb [signed-by=/usr/share/keyrings/wazuh.gpg] https://packages.wazuh.com/4.x/apt stable main" | sudo tee /etc/apt/sources.list.d/wazuh.list
+sudo apt update
 sudo apt install wazuh-agent -y
-```
-
-Configure:
-
-```bash
-sudo nano /var/ossec/etc/ossec.conf
-```
-
-```xml
-<server>
-  <address>WAZUH_SERVER_IP</address>
-</server>
 ```
 
 Start:
 
 ```bash
+systemctl daemon-reload
 sudo systemctl enable wazuh-agent
 sudo systemctl start wazuh-agent
 ```
@@ -194,16 +211,11 @@ sudo systemctl start wazuh-agent
 
 # 🪟 Step 8 – Windows Agent Enrollment
 
-Install Windows agent → configure:
+## Install agent (PowerShell as Admin)
 
-```
-C:\Program Files (x86)\ossec-agent\ossec.conf
-```
-
-```xml
-<server>
-  <address>WAZUH_SERVER_IP</address>
-</server>
+```powershell
+Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.7.0-1.msi -OutFile wazuh-agent.msi
+msiexec.exe /i wazuh-agent.msi /q
 ```
 
 Start service:
@@ -229,7 +241,7 @@ This SOC lab simulates:
 
 ---
 
-# 🚀 Next Steps
+#  Next Steps
 
 - Add Suricata IDS/IPS
 - Add Sysmon logging
@@ -239,7 +251,7 @@ This SOC lab simulates:
 
 ---
 
-# 🧠 Goal
+# Goals
 
 Develop real SOC skills in:
 - log analysis
