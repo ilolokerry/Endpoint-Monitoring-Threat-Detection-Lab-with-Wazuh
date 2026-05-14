@@ -5,7 +5,7 @@
 
 ## 📌 What is Wazuh?
 
-:contentReference[oaicite:0]{index=0} is an open-source security monitoring and threat detection platform used for endpoint security, log analysis, intrusion detection, and incident response.
+Wazuh is an open-source security monitoring and threat detection platform used for endpoint security, log analysis, intrusion detection, and incident response.
 
 It functions as a Security Information and Event Management (SIEM) solution that collects and analyzes security telemetry from multiple systems in real time.
 
@@ -16,7 +16,7 @@ It functions as a Security Information and Event Management (SIEM) solution that
 Wazuh provides the following security capabilities:
 
 - 📊 Centralized log collection and analysis
-- 🖥️ Endpoint monitoring (Windows & Linux)
+- 🖥️ Endpoint monitoring
 - 🔍 File Integrity Monitoring (FIM)
 - 🚨 Intrusion detection and alerting
 - 🌐 Security event correlation (SIEM functionality)
