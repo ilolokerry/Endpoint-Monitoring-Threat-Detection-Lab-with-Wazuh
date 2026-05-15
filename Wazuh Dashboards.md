@@ -78,16 +78,15 @@ The second visualization created was a metric panel showing the total number of 
 - Metric
 
 ### Data Source
-- `alert.source`
+- `Wazuh-alerts`
 
 ### Metric Settings
 - Aggregation: `Count`
 - Custom Label: `Total Alerts`
-
+![total settings](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/c6e3d68d3f4464ec869469dfaf5315fb7a937a02/images/dashborad/total%20settings.png)
 This metric provides quick visibility into the total alert volume detected by the SIEM.
 
-📸 Screenshot Placeholder:
-- Metric configuration
+![total dashboards](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/c6e3d68d3f4464ec869469dfaf5315fb7a937a02/images/dashborad/total%20dashbooard.png)
 - Total alerts metric visualization
 
 ---
@@ -102,14 +101,14 @@ This visualization helps identify potentially malicious files detected on monito
 - Table
 
 ## Data Source
-- `alert.source`
+- `Wazuh-alerts`
 
 ## Filter Applied
 
 ``` id="7rfj3h"
 data.virustotal.found:1
 ```
-
+![filter](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/c6e3d68d3f4464ec869469dfaf5315fb7a937a02/images/dashborad/table%20source.png)
 This filter displays only alerts where VirusTotal identified a malicious file.
 
 ---
@@ -128,6 +127,7 @@ The following fields were added to the table buckets section:
 Each field was limited to:
 - Top 5 results
 - Descending order
+  ![settings](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/c6e3d68d3f4464ec869469dfaf5315fb7a937a02/images/dashborad/table%20settings.png)
 
 This configuration provided detailed visibility into detected malicious files, affected endpoints, associated hashes, and VirusTotal analysis links.
 
