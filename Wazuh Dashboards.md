@@ -25,10 +25,10 @@ The dashboard was designed to:
 # Step 1 – Import Sample Data into Wazuh
 
 Before creating visualizations, sample security alert data was imported into the SIEM environment for analysis and dashboard testing.
-
-📸 Screenshot Placeholder:
+![home](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3391d89bbf8d21e4bfcc197925b605428e0598fe/images/dashborad/home.png)
+![sample](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3391d89bbf8d21e4bfcc197925b605428e0598fe/images/dashborad/samples.png)
 - Sample data successfully imported
-- Wazuh Discover page showing alerts
+
 
 ---
 
@@ -42,11 +42,12 @@ The first visualization created was a pie chart displaying the Top 10 security a
 - Pie Chart
 
 ### Data Source
-- `alert.source`
-
+- `wazuh-alerts`
+  ![datasource](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3391d89bbf8d21e4bfcc197925b605428e0598fe/images/dashborad/data%20source.png)
 ### Metric Settings
 - Aggregation: `Count`
 - Custom Label: `Alerts`
+  ![metric](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3391d89bbf8d21e4bfcc197925b605428e0598fe/images/dashborad/pie%20metric.png)
 
 ### Bucket Settings
 - Split Slices
@@ -55,15 +56,15 @@ The first visualization created was a pie chart displaying the Top 10 security a
 - Order By: `Metric: Alerts`
 - Order: `Descending`
 - Size: `10`
+![bucket](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3391d89bbf8d21e4bfcc197925b605428e0598fe/images/dashborad/pie%20buckets.png)
 
 This configuration grouped alerts by rule description and displayed the most frequent alerts as individual slices in the chart.
 
 After configuration, the visualization was saved and added to the dashboard.
 
-📸 Screenshot Placeholder:
-- Pie chart configuration
+![save](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3391d89bbf8d21e4bfcc197925b605428e0598fe/images/dashborad/pie%20save.png)
+![dashboard pie](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3391d89bbf8d21e4bfcc197925b605428e0598fe/images/dashborad/pie%20dashboard.png)
 - Final Top 10 Alerts pie chart
-- Dashboard with pie chart added
 
 ---
 
