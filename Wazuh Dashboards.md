@@ -131,42 +131,28 @@ Each field was limited to:
 
 This configuration provided detailed visibility into detected malicious files, affected endpoints, associated hashes, and VirusTotal analysis links.
 
-📸 Screenshot Placeholder:
-- Table visualization configuration
-- VirusTotal detection results
+![table save](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/88292e2838c85e889445098c1638268ef153b4b1/images/dashborad/table%20dashboard.png)
+
 - Table added to dashboard
 
 ---
 
-# Step 5 – Configure Dashboard Time Filter
 
-A dashboard filter was added to display only alerts from the last 24 hours.
-
-This helps ensure the dashboard focuses on recent security activity and improves SOC monitoring efficiency.
-
-📸 Screenshot Placeholder:
-- Time filter configuration
-- Dashboard showing last 24 hours selected
-
----
-
-# Step 6 – Save Dashboard
+# Step 5 – Save Dashboard
 
 The completed dashboard was saved under the name:
 
 ``` id="4d2z2q"
-Alerts
+My Alerts
 ```
-
+![save](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/88292e2838c85e889445098c1638268ef153b4b1/images/dashborad/dashboard%20save.png)
 The dashboard now provides centralized visibility into:
 - Alert trends
 - Alert volume
 - Malware detections
 - VirusTotal analysis results
 
-📸 Screenshot Placeholder:
-- Final completed dashboard
-- Full dashboard overview
+
 
 ---
 
@@ -178,6 +164,8 @@ The completed dashboard includes:
 - Total Alerts Metric
 - VirusTotal Detection Table
 - 24-Hour Time Filter
+
+  ![table save](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/88292e2838c85e889445098c1638268ef153b4b1/images/dashborad/table%20dashboard.png)
 
 ---
 
