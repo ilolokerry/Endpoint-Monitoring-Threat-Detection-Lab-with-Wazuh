@@ -24,7 +24,7 @@ This lab was designed to:
 
 ---
 
-# 🖥️ Step 1 – Configure Wazuh Manager Logging
+#  Step 1 – Configure Wazuh Manager Logging
 
 The first step was enabling detailed logging on the Wazuh server.
 
@@ -33,7 +33,7 @@ The first step was enabling detailed logging on the Wazuh server.
 ```bash id="ayr4j4"
 sudo nano /var/ossec/etc/ossec.conf
 ```
-
+![confi](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/wazuh%20config.png)
 Under the `<global>` section, the following settings were enabled:
 
 ```xml id="fzd9t9"
@@ -47,13 +47,13 @@ These settings enable:
 - JSON-formatted event logging
 - Improved visibility for investigations and alert analysis
 
-📸 Screenshot Placeholder:
+![config done](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/wazuh%20config%20done.png)
 - Wazuh server configuration file
 - `<logall>` and `<logall_json>` enabled
 
 ---
 
-# 🐧 Step 2 – Enable File Integrity Monitoring on Ubuntu Agent
+#  Step 2 – Enable File Integrity Monitoring on Ubuntu Agent
 
 The next step was enabling FIM on the Ubuntu client endpoint.
 
@@ -62,7 +62,7 @@ The next step was enabling FIM on the Ubuntu client endpoint.
 ```bash id="bck4a6"
 sudo nano /var/ossec/etc/ossec.conf
 ```
-
+![ubuntu config](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/ubuntu%20config.png)
 Navigate to the File Integrity Monitoring section.
 
 Under:
@@ -76,20 +76,13 @@ The following directory monitoring rule was added:
 ```xml id="6r3k3k"
 <directories check_all="yes" report_changes="yes" realtime="yes">/root</directories>
 ```
-
+![fim added](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/ubuntu%20change%20section.png)
+![fim added](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/change%20added.png)
 This configuration enables:
 - Real-time monitoring
 - File change detection
 - File addition monitoring
 - Detailed reporting for the `/root` directory
-
-📸 Screenshot Placeholder:
-- FIM configuration section
-- `/root` directory monitoring rule added
-
----
-
-# 🔄 Step 3 – Restart Wazuh Agent
 
 After modifying the configuration, the Wazuh agent was restarted to apply the changes.
 
@@ -102,14 +95,9 @@ Verify the agent status:
 ```bash id="vc4q8j"
 sudo systemctl status wazuh-agent
 ```
-
-📸 Screenshot Placeholder:
-- Wazuh agent restarted successfully
-- Service status output
-
 ---
 
-# 📂 Step 4 – Generate File Creation Activity
+# 📂 Step 3 – Generate File Creation Activity
 
 To test File Integrity Monitoring, a new file was created inside the monitored `/root` directory.
 
@@ -124,15 +112,16 @@ This action simulates:
 - suspicious endpoint activity
 - file system changes requiring SOC visibility
 
-📸 Screenshot Placeholder:
+![files created](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/file%20added.png)
 - Terminal showing file creation
 - `/root` directory contents
 
 ---
 
-# 🚨 Step 5 – Confirm Alert Generation
+# 🚨 Step 4 – Confirm Alert Generation
 
 After creating the file, the Wazuh dashboard was monitored for generated alerts.
+![alert](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/alert.png)
 
 The SIEM successfully detected the file creation event.
 
@@ -146,9 +135,11 @@ This confirmed that:
 - Real-time monitoring was active
 - Wazuh successfully detected file system changes
 
-📸 Screenshot Placeholder:
+![rule detailes](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/rule%20detailes.png)
 - Wazuh alert showing file creation event
 - Alert details panel
+  
+  ![rule id ](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/rule%20id.png)
 - Rule ID 554 information
 
 ---
@@ -181,19 +172,6 @@ Through this lab, I gained hands-on experience with:
 - Real-time security monitoring
 - Threat detection workflows
 - SOC investigation processes
-
----
-
-# 🚀 Next Steps
-
-Planned improvements include:
-
-- Monitoring additional sensitive directories
-- Detecting file modifications and deletions
-- Integrating Sysmon telemetry
-- Creating custom FIM detection rules
-- Simulating malware file drops
-- Building alert correlation dashboards
 
 ---
 
