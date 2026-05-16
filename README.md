@@ -74,7 +74,7 @@ The lab focuses on detecting, analyzing, and investigating malicious activity ac
 ## ✅ File Integrity Monitoring (FIM)
 Monitored critical files and directories for unauthorized modifications and suspicious changes.
 
-🔗 Project Link:  
+🔗 [File Integrity Monitoring Lab Report](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/main/03-Hands%20on%20lab%201-%20File%20Integrity%20Monitoring.md)
 
 
 ---
