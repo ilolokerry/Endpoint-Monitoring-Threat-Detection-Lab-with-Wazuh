@@ -136,7 +136,7 @@ A custom CDB list and custom Wazuh rule were created to detect suspicious comman
 
 ---
 
-# 📂Create Suspicious Program List
+Create Suspicious Program List
 
 Create the file:
 
@@ -162,7 +162,7 @@ Severity Meaning
 
 ---
 
-# ⚙️ Add List to Wazuh Configuration
+ Add List to Wazuh Configuration
 
 Open the Wazuh manager configuration:
 
@@ -180,7 +180,7 @@ Add the List Under `<ruleset>`
 
 ---
 
-#  Create Custom Detection Rule
+Create Custom Detection Rule
 
 Open local rules file:
 
@@ -230,11 +230,11 @@ sudo systemctl restart wazuh-manager
 
 ---
 
-# ⚔️ Step 5 – Attack Simulation with Netcat
+# Step 5 – Attack Simulation with Netcat
 
 Netcat was used to simulate suspicious command execution activity.
 
-## Install Netcat on Endpoint and Execute Netcat Command
+ Install Netcat on Endpoint and Execute Netcat Command
 
 ```bash
 sudo apt -y install netcat
@@ -250,26 +250,18 @@ This activity triggered the custom Wazuh detection rule.
 
 ---
 
-# 🚨 Alert Detection
+# Alert Detection
 
 Wazuh successfully detected the execution of Netcat and generated a high-severity alert.
 
-The alert included:
-- Executed command
-- Endpoint hostname
-- Rule ID
-- Severity level
-- Timestamp
-- Audit event details
 
 📸 Screenshot Placeholder:
 - Wazuh alert triggered by Netcat
-- Rule ID 100210 alert details
-- Alert severity visualization
+
 
 ---
 
-# 📊 Observations
+# Observations
 
 This lab demonstrated how Wazuh and Auditd can work together to:
 - monitor Linux command execution
