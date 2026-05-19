@@ -97,7 +97,7 @@ sudo systemctl status wazuh-agent
 ```
 ---
 
-# 📂 Step 3 – Generate File Creation Activity
+#  Step 3 – Generate File Creation Activity
 
 To test File Integrity Monitoring, a new file was created inside the monitored `/root` directory.
 
@@ -118,7 +118,7 @@ This action simulates:
 
 ---
 
-# 🚨 Step 4 – Confirm Alert Generation
+#  Step 4 – Confirm Alert Generation
 
 After creating the file, the Wazuh dashboard was monitored for generated alerts.
 ![alert](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/3a84422e1f48ee541704ecf105fdb35a3436d1c9/images/fim/alert.png)
@@ -144,7 +144,7 @@ This confirmed that:
 
 ---
 
-# 📊 Investigation Summary
+#  Investigation Summary
 
 The generated alert provided visibility into:
 - affected endpoint
@@ -161,7 +161,7 @@ This demonstrates how FIM can help SOC analysts detect:
 
 ---
 
-# 🧠 Skills Practiced
+#  Skills Practiced
 
 Through this lab, I gained hands-on experience with:
 
@@ -175,6 +175,6 @@ Through this lab, I gained hands-on experience with:
 
 ---
 
-# 🎯 Goal of This Lab
+#  Goal of This Lab
 
 The purpose of this lab is to build practical SOC analyst skills by detecting and investigating unauthorized file system activity using real-time endpoint monitoring and SIEM alerting.
