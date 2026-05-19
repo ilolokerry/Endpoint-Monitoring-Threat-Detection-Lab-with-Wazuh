@@ -16,7 +16,7 @@ The lab focused on:
 
 ---
 
-# 🧠 What is Auditd?
+#  What is Auditd?
 
 Auditd (Audit Daemon) is part of the Linux auditing framework used for monitoring and logging system activity.
 
@@ -29,51 +29,19 @@ It helps system administrators and SOC analysts:
 
 ---
 
-# ⚙️ Key Functions of Auditd
-
-- 📊 Event logging
-- 🛡️ Rule enforcement
-- 🚨 Alert generation
-- 🔍 Forensic investigation
-- 📁 File and process monitoring
-
----
-
-# 🎯 Lab Objective
-
-The objective of this lab was to:
-- Monitor Linux command execution activity
-- Detect suspicious programs using Wazuh
-- Generate high-severity alerts for malicious commands
-- Simulate attacker activity using Netcat
-
----
-
-# ⚙️ Step 1 – Install and Enable Auditd on the Endpoint
+#  Step 1 – Install and Enable Auditd on the Endpoint
 
 Auditd was installed on the monitored Linux endpoint.
 
-## Install Auditd
+## Install and enable  Auditd
 
 ```bash
 sudo apt -y install auditd
-```
-
----
-
-## Start Auditd Service
-
-```bash
 sudo systemctl start auditd
-```
-
----
-
-## Enable Auditd on Boot
-
-```bash
 sudo systemctl enable auditd
 ```
+
+---
 
 📸 Screenshot Placeholder:
 - Auditd installation output
@@ -81,7 +49,7 @@ sudo systemctl enable auditd
 
 ---
 
-# 📂 Step 2 – Add Auditd Logs to the Wazuh Agent
+# Step 2 – Add Auditd Logs to the Wazuh Agent
 
 The Auditd log file was added to the Wazuh agent configuration for monitoring.
 
@@ -101,15 +69,11 @@ This was used to verify that Auditd events were being generated successfully.
 
 ---
 
-## Open Wazuh Agent Configuration
+## Open Wazuh Agent Configuration and Add Audit Log Monitoring Configuration
 
 ```bash
 sudo nano /var/ossec/etc/ossec.conf
 ```
-
----
-
-## Add Audit Log Monitoring Configuration
 
 ```xml
 <localfile>
@@ -118,10 +82,7 @@ sudo nano /var/ossec/etc/ossec.conf
 </localfile>
 ```
 
----
-
-## Restart Wazuh Agent
-
+Restart Wazuh Agent
 ```bash
 sudo systemctl restart wazuh-agent
 ```
@@ -132,7 +93,7 @@ sudo systemctl restart wazuh-agent
 
 ---
 
-# 🛡️ Step 3 – Add Auditd Rules
+#  Step 3 – Add Auditd Rules
 
 Auditd rules were configured to monitor command execution activity.
 
@@ -143,17 +104,13 @@ Auditd rules were configured to monitor command execution activity.
 ```bash
 sudo nano /etc/audit/audit.rules
 ```
-
----
-
-## Add Command Execution Monitoring Rules
+ Add Command Execution Monitoring Rules
 
 ```bash
 -a always,exit -F arch=b32 -S execve -k audit-wazuh-c
 -a always,exit -F arch=b64 -S execve -k audit-wazuh-c
 ```
-
-### Rule Explanation
+ Rule Explanation
 
 - `execve` → Monitors executed commands
 - `always,exit` → Logs every execution event
@@ -161,8 +118,7 @@ sudo nano /etc/audit/audit.rules
 - `audit-wazuh-c` → Custom key used for tracking events
 
 ---
-
-## Restart Auditd
+Restart Auditd
 
 ```bash
 sudo systemctl restart auditd
@@ -174,31 +130,27 @@ sudo systemctl restart auditd
 
 ---
 
-# 🚨 Step 4 – Configure Wazuh Detection Rules
+#  Step 4 – Configure Wazuh Detection Rules
 
 A custom CDB list and custom Wazuh rule were created to detect suspicious command execution.
 
 ---
 
-# 📂 Create Suspicious Program List
+# 📂Create Suspicious Program List
 
 Create the file:
 
 ```bash
 sudo nano /var/ossec/etc/lists/suspicious-programs
 ```
-
----
-
-## Add Suspicious Programs
+Add Suspicious Programs
 
 ```text
 ncat:yellow
 nc:red
 tcpdump:orange
 ```
-
-### Severity Meaning
+Severity Meaning
 
 - `red` → Highly suspicious
 - `orange` → Suspicious
@@ -217,10 +169,7 @@ Open the Wazuh manager configuration:
 ```bash
 sudo nano /var/ossec/etc/ossec.conf
 ```
-
----
-
-## Add the List Under `<ruleset>`
+Add the List Under `<ruleset>`
 
 ```xml
 <list>etc/lists/suspicious-programs</list>
@@ -231,7 +180,7 @@ sudo nano /var/ossec/etc/ossec.conf
 
 ---
 
-# 🛡️ Create Custom Detection Rule
+#  Create Custom Detection Rule
 
 Open local rules file:
 
@@ -241,7 +190,7 @@ sudo nano /var/ossec/etc/rules/local_rules.xml
 
 ---
 
-## Add High-Severity Detection Rule
+Add High-Severity Detection Rule
 
 ```xml
 <group name="audit">
@@ -263,7 +212,7 @@ sudo nano /var/ossec/etc/rules/local_rules.xml
 </group>
 ```
 
-### Rule Purpose
+Rule Purpose
 
 This rule generates a high-severity alert whenever a command categorized as `red` is executed.
 
@@ -273,14 +222,11 @@ This rule generates a high-severity alert whenever a command categorized as `red
 
 ---
 
-# 🔄 Restart Wazuh Manager
+  Restart Wazuh Manager
 
 ```bash
 sudo systemctl restart wazuh-manager
 ```
-
-📸 Screenshot Placeholder:
-- Wazuh manager restart output
 
 ---
 
@@ -288,21 +234,13 @@ sudo systemctl restart wazuh-manager
 
 Netcat was used to simulate suspicious command execution activity.
 
----
-
-## Install Netcat on Endpoint
+## Install Netcat on Endpoint and Execute Netcat Command
 
 ```bash
 sudo apt -y install netcat
-```
-
----
-
-## Execute Netcat Command
-
-```bash
 nc -v
 ```
+---
 
 This activity triggered the custom Wazuh detection rule.
 
@@ -342,23 +280,3 @@ This lab demonstrated how Wazuh and Auditd can work together to:
 The custom detection logic successfully identified Netcat execution as suspicious activity.
 
 ---
-
-# 🧠 Skills Practiced
-
-- Linux auditing
-- Wazuh rule creation
-- Detection engineering
-- Endpoint monitoring
-- Command execution monitoring
-- Security alert investigation
-- Threat detection workflows
-
----
-
-# 🚀 Next Steps
-
-- Detect reverse shell activity
-- Add Active Response for malicious commands
-- Monitor additional tools such as Nmap and Socat
-- Integrate MITRE ATT&CK mappings
-- Create command execution dashboards in Wazuh
