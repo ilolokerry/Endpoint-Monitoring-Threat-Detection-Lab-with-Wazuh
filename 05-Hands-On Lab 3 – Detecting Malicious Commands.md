@@ -42,10 +42,8 @@ sudo systemctl enable auditd
 ```
 
 ---
-
-📸 Screenshot Placeholder:
-- Auditd installation output
-- Auditd service status
+![install](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/install.png)
+- Auditd installation
 
 ---
 
@@ -63,10 +61,9 @@ sudo tail -f /var/log/audit/audit.log
 
 This was used to verify that Auditd events were being generated successfully.
 
-📸 Screenshot Placeholder:
+![auditlog](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/auditlog.png)
 - Real-time Auditd log generation
-- Terminal showing audit events
-
+  
 ---
 
 ## Open Wazuh Agent Configuration and Add Audit Log Monitoring Configuration
@@ -86,11 +83,7 @@ Restart Wazuh Agent
 ```bash
 sudo systemctl restart wazuh-agent
 ```
-
-📸 Screenshot Placeholder:
-- Wazuh agent configuration
-- Agent restart confirmation
-
+![loglink](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/agentlogfile.png)
 ---
 
 #  Step 3 – Add Auditd Rules
@@ -124,10 +117,11 @@ Restart Auditd
 sudo systemctl restart auditd
 ```
 
-📸 Screenshot Placeholder:
+![rulesadded](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/auditroles.png)
 - Audit rules added successfully
-- Auditd restart confirmation
 
+![auditevents](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/audit%20events.png)
+- Audit events
 ---
 
 #  Step 4 – Configure Wazuh Detection Rules
@@ -156,10 +150,8 @@ Severity Meaning
 - `orange` → Suspicious
 - `yellow` → Monitoring recommended
 
-📸 Screenshot Placeholder:
+![susprograms](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/susprograms.png)
 - Suspicious program list file
-- Configured program entries
-
 ---
 
  Add List to Wazuh Configuration
@@ -174,9 +166,6 @@ Add the List Under `<ruleset>`
 ```xml
 <list>etc/lists/suspicious-programs</list>
 ```
-
-📸 Screenshot Placeholder:
-- Wazuh configuration showing custom list
 
 ---
 
@@ -212,14 +201,10 @@ Add High-Severity Detection Rule
 </group>
 ```
 
-Rule Purpose
-
 This rule generates a high-severity alert whenever a command categorized as `red` is executed.
 
-📸 Screenshot Placeholder:
+![localrules](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/local%20rules.png)
 - Custom Wazuh rule configuration
-- Local rules XML file
-
 ---
 
   Restart Wazuh Manager
@@ -244,8 +229,7 @@ nc -v
 
 This activity triggered the custom Wazuh detection rule.
 
-📸 Screenshot Placeholder:
-- Netcat installation
+![netcat](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/attack.png)
 - Netcat execution in terminal
 
 ---
@@ -255,10 +239,10 @@ This activity triggered the custom Wazuh detection rule.
 Wazuh successfully detected the execution of Netcat and generated a high-severity alert.
 
 
-📸 Screenshot Placeholder:
+![alert](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/b4c686316b89e21c6a9df59bbbf3e807e783d06a/images/malicous/alerts.png)
 - Wazuh alert triggered by Netcat
 
-
+  
 ---
 
 # Observations
