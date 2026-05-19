@@ -1,5 +1,5 @@
 
-# 🛡️ Hands-On Lab 3 – Vulnerability Detection with Wazuh
+# 🛡️ Hands-On Lab 2 – Vulnerability Detection with Wazuh
 
 ---
 
