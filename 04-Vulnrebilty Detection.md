@@ -16,17 +16,6 @@ The objective of this lab was to:
 
 ---
 
-# 🎯 Lab Objective
-
-The goal of this exercise was to simulate how a SOC analyst can:
-- Identify vulnerable systems
-- Detect outdated software packages
-- Investigate CVE details
-- Prioritize remediation actions
-- Export vulnerability reports for analysis and documentation
-
----
-
 # ⚙️ Step 1 – Verify Vulnerability Detection Configuration
 
 The Wazuh configuration file was opened to verify that vulnerability detection was enabled.
@@ -50,12 +39,6 @@ The following settings were verified:
   <feed-update-interval>60m</feed-update-interval>
 </vulnerability-detection>
 ```
-
-### Configuration Explanation
-
-- `<enabled>yes</enabled>` → Enables vulnerability detection
-- `<index-status>yes</index-status>` → Stores vulnerability states in the indexer
-- `<feed-update-interval>60m</feed-update-interval>` → Updates CVE feeds every 60 minutes
 
 📸 Screenshot Placeholder:
 - Wazuh `ossec.conf` vulnerability detection configuration
