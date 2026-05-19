@@ -16,7 +16,7 @@ The objective of this lab was to:
 
 ---
 
-# ⚙️ Step 1 – Verify Vulnerability Detection Configuration
+#  Step 1 – Verify Vulnerability Detection Configuration
 
 The Wazuh configuration file was opened to verify that vulnerability detection was enabled.
 
@@ -40,13 +40,12 @@ The following settings were verified:
 </vulnerability-detection>
 ```
 
-📸 Screenshot Placeholder:
-- Wazuh `ossec.conf` vulnerability detection configuration
+![config](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/a98fa0901ccf973496c993e22989ba2dc06c1ed0/images/vulrebily/config.png)
 - Terminal showing the configuration file
 
 ---
 
-# 🔄 Step 2 – Restart Wazuh Manager
+#  Step 2 – Restart Wazuh Manager
 
 After verifying the configuration, the Wazuh manager service was restarted.
 
@@ -61,14 +60,9 @@ sudo systemctl restart wazuh-manager
 ```bash
 sudo systemctl status wazuh-manager
 ```
-
-📸 Screenshot Placeholder:
-- Wazuh manager successfully restarted
-- Service status output
-
 ---
 
-# 📊 Step 3 – Visualize Vulnerabilities in the Wazuh Dashboard
+# Step 3 – Visualize Vulnerabilities in the Wazuh Dashboard
 
 The Wazuh dashboard was used to visualize vulnerabilities detected on monitored agents.
 
@@ -81,15 +75,16 @@ The dashboard displayed:
 
 The vulnerability reports could also be exported for documentation and further analysis.
 
-📸 Screenshot Placeholder:
+![dashboard](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/a98fa0901ccf973496c993e22989ba2dc06c1ed0/images/vulrebily/vuln%20dashboad.png)
 - Vulnerability Detection dashboard overview
+  ![cve](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/a98fa0901ccf973496c993e22989ba2dc06c1ed0/images/vulrebily/vulnrebilty%20alerts.png)
 - Detected CVEs on monitored agents
-- CVE details and remediation recommendations
-- Export vulnerability report option
+![report](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/a98fa0901ccf973496c993e22989ba2dc06c1ed0/images/vulrebily/vulrebilty%20repoprt.png)
+- vulnerability report
 
 ---
 
-# 🔍 Observations
+#  Observations
 
 The vulnerability detection module successfully identified vulnerable software packages installed on monitored systems and mapped them to publicly known CVEs.
 
@@ -100,7 +95,7 @@ This demonstrated how Wazuh can provide:
 
 ---
 
-# 📌 Key Features Demonstrated
+#  Key Features Demonstrated
 
 - Vulnerability detection
 - CVE identification
@@ -111,21 +106,3 @@ This demonstrated how Wazuh can provide:
 
 ---
 
-# 🧠 Skills Practiced
-
-- Wazuh administration
-- SIEM configuration
-- Vulnerability management
-- CVE analysis
-- Security monitoring
-- SOC investigation workflows
-
----
-
-# 🚀 Next Steps
-
-- Configure email alerting for critical CVEs
-- Integrate threat intelligence feeds
-- Perform vulnerability remediation testing
-- Build custom vulnerability dashboards
-- Correlate vulnerabilities with active threats
