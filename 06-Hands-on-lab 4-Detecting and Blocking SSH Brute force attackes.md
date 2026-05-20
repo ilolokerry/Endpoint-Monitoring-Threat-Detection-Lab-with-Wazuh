@@ -16,21 +16,11 @@ The objective of this lab was to:
 
 ---
 
-# 🎯 Lab Objective
-
-The goal of this exercise was to simulate how a SOC analyst can:
-- Detect SSH brute-force activity
-- Investigate authentication attack alerts
-- Configure automated defensive actions
-- Block malicious IP addresses in real time
-
----
-
-# 🔍 Step 1 – Identify the SSH Brute-Force Detection Rule
+#  Step 1 – Identify the SSH Brute-Force Detection Rule
 
 The Wazuh web interface was used to identify the SSH brute-force attack detection rule.
 
-## Navigate to Rules
+Navigate to Rules
 
 Within the Wazuh dashboard:
 - Open **Rules**
@@ -44,20 +34,18 @@ This rule is responsible for detecting SSH brute-force authentication activity.
 
 The rule was selected because it would later be linked to the Active Response configuration.
 
-📸 Screenshot Placeholder:
-- Wazuh Rules page
-- Rule 5763 search result
+![rule](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/e17a2af450a953258c9cd715641041aa79233f24/images/bfa/local%20rules.png)
 - Rule description and severity level
 
 ---
 
-# ⚙️ Step 2 – Verify Firewall-Drop Active Response Command
+#  Step 2 – Verify Firewall-Drop Active Response Command
 
 The Wazuh manager configuration was reviewed to ensure the `firewall-drop` command was available for Active Response.
 
 ---
 
-## Verify Active Response Binary Exists
+Verify Active Response Binary Exists
 
 Navigate to the Active Response directory:
 
@@ -67,19 +55,19 @@ cd /var/ossec/active-response/bin
 
 Verify that `firewall-drop` exists within the directory.
 
-📸 Screenshot Placeholder:
+![script](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/e17a2af450a953258c9cd715641041aa79233f24/images/bfa/fire%20wall%20rules.png)
 - Active response directory contents
 - `firewall-drop` script visible
 
 ---
 
-# 🛡️ Step 3 – Configure Active Response
+#  Step 3 – Configure Active Response
 
 The Active Response configuration was added to the Wazuh manager configuration file.
 
 ---
 
-## Open Wazuh Configuration
+Open Wazuh Configuration
 
 ```bash
 sudo nano /var/ossec/etc/ossec.conf
@@ -87,7 +75,7 @@ sudo nano /var/ossec/etc/ossec.conf
 
 ---
 
-## Add Active Response Configuration
+ Add Active Response Configuration
 
 ```xml
 <active-response>
@@ -97,30 +85,10 @@ sudo nano /var/ossec/etc/ossec.conf
   <timeout>180</timeout>
 </active-response>
 ```
-
+This configuration uses the `firewall-drop` active response to automatically block IP addresses for 180 seconds whenever Wazuh Rule `5763` detects an SSH brute-force attack on the monitored system.
 ---
 
-# 🧠 Configuration Explanation
-
-- `<command>firewall-drop</command>`  
-  → Executes the firewall blocking action
-
-- `<location>local</location>`  
-  → Runs the response locally on the monitored system
-
-- `<rules_id>5763</rules_id>`  
-  → Triggers the response when Rule 5763 fires
-
-- `<timeout>180</timeout>`  
-  → Blocks the attacking IP for 180 seconds
-
-📸 Screenshot Placeholder:
-- Active Response configuration inside `ossec.conf`
-- Highlighted Active Response section
-
----
-
-# 🔄 Restart Wazuh Manager
+ Restart Wazuh Manager
 
 After saving the configuration, the Wazuh manager service was restarted.
 
@@ -130,89 +98,57 @@ sudo systemctl restart wazuh-manager
 
 ---
 
-## Verify Service Status
+Verify Service Status
 
 ```bash
 sudo systemctl status wazuh-manager
 ```
 
-📸 Screenshot Placeholder:
-- Wazuh manager restarted successfully
-- Service running status
-
+![response](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/e17a2af450a953258c9cd715641041aa79233f24/images/bfa/active.png)
 ---
 
-# ⚔️ Step 4 – SSH Brute-Force Simulation
+#  Step 4 – SSH Brute-Force Simulation
 
 A controlled SSH authentication failure simulation was performed within the lab environment to generate brute-force detection alerts.
 
 ---
 
-# 🐧 Configure SSH on Ubuntu Endpoint
+ Configure SSH on Ubuntu Endpoint
 
 Install and enable SSH service on the monitored endpoint.
 
-## Install OpenSSH Server
-
 ```bash
 sudo apt install openssh-server -y
-```
-
----
-
-## Start SSH Service
-
-```bash
 sudo systemctl start ssh
-```
-
----
-
-## Enable SSH on Boot
-
-```bash
 sudo systemctl enable ssh
 ```
+---
 
-📸 Screenshot Placeholder:
-- SSH service running
-- SSH status confirmation
+Install Hydra on attacker system
+
+```bash
+sudo apt update
+sudo apt install hydra -y
+```
+---
+Create a custom password list file (`PASSWD_LIST.txt`)  containing multiple test entries to simulate repeated authentication attempts against the target SSH service.
+
+---
+ Simulate SSH Brute-Force Attack
+
+Repeated failed SSH authentication attempts were generated using Hydra against the target endpoint to simulate a brute-force attack scenario.
+
+## Command used:
+
+```bash
+sudo hydra -t 4 -l <user> -P PASSWD_LIST.txt <victim_IP> ssh
+```
+![bfa](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/e17a2af450a953258c9cd715641041aa79233f24/images/bfa/bfa.png)
+attack command
 
 ---
 
-# 🛠️ Install Testing Tool on Attacker System
-
-A password auditing tool was installed on the attacker machine within the isolated lab environment.
-
-📸 Screenshot Placeholder:
-- Tool installation output
-- Attacker VM terminal
-
----
-
-# 📄 Create Test Password List
-
-A sample password list containing test entries was created for the simulation.
-
-📸 Screenshot Placeholder:
-- Password list file
-- Example test entries
-
----
-
-# 🔁 Simulate Repeated Authentication Failures
-
-Repeated failed SSH authentication attempts were generated against the target endpoint in the isolated lab environment.
-
-This activity triggered the Wazuh SSH brute-force detection rule.
-
-📸 Screenshot Placeholder:
-- Failed SSH login attempts
-- Authentication failure logs
-
----
-
-# 🚨 Step 5 – Confirm Detection and Blocking
+# Step 5 – Confirm Detection and Blocking
 
 The Wazuh dashboard was monitored to confirm:
 - SSH brute-force detection alerts
@@ -220,25 +156,10 @@ The Wazuh dashboard was monitored to confirm:
 - Active Response execution
 - Automatic firewall blocking
 
-The blocked source IP was verified using firewall inspection commands.
-
+![alerts](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/e17a2af450a953258c9cd715641041aa79233f24/images/bfa/alert.png)
+![details]()
 ---
-
-## Verify Firewall Rules
-
-```bash
-sudo iptables -L -n --line-numbers
-```
-
-📸 Screenshot Placeholder:
-- Wazuh brute-force alert
-- Rule 5763 alert details
-- Firewall block rule showing attacker IP
-- Active Response logs
-
----
-
-# 📊 Observations
+#  Observations
 
 The lab successfully demonstrated how Wazuh can:
 - detect repeated failed SSH login attempts
