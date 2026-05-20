@@ -1,9 +1,9 @@
 
-# 🛡️ Hands-On Lab 3 – Detecting Malicious Commands 
+#  Hands-On Lab 3 – Detecting Malicious Commands 
 
 ---
 
-# 📌 Overview
+#  Overview
 
 This hands-on lab demonstrates how to detect suspicious and potentially malicious command execution on Linux endpoints using Wazuh and Auditd.
 
