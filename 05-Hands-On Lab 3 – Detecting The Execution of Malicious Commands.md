@@ -1,5 +1,5 @@
 
-# 🛡️ Hands-On Lab 3 – Detecting Malicious Commands with Wazuh & Auditd
+# 🛡️ Hands-On Lab 3 – Detecting Malicious Commands 
 
 ---
 
