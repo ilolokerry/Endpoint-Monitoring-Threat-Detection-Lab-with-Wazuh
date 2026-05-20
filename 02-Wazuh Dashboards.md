@@ -1,4 +1,4 @@
-# 📊 Wazuh Dashboard Creation & Alert Visualization
+#  Wazuh Dashboard Creation & Alert Visualization
 
 ---
 
@@ -10,7 +10,7 @@ The objective of this phase was to improve alert visibility, monitor security ev
 
 ---
 
-# 🎯 Goals
+# Goals
 
 The dashboard was designed to:
 
