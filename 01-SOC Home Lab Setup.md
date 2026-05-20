@@ -1,9 +1,9 @@
 
-# 🛡️ SOC Home Lab Setup – Wazuh SIEM Environment 
+#  SOC Home Lab Setup – Wazuh SIEM Environment 
 
 ---
 
-## 📌 What is Wazuh?
+##  What is Wazuh?
 
 Wazuh is an open-source security monitoring and threat detection platform used for endpoint security, log analysis, intrusion detection, and incident response.
 
