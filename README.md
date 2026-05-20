@@ -1,5 +1,5 @@
 
-# 🔐 SOC Lab – Endpoint Monitoring & Threat Detection with Wazuh
+# SOC Lab – Endpoint Monitoring & Threat Detection with Wazuh
 
 ## 📌 Project Overview
 
@@ -7,14 +7,12 @@ This project is a hands-on SOC (Security Operations Center) lab designed to simu
 
 The lab focuses on detecting, analyzing, and investigating malicious activity across endpoint and network environments through SIEM monitoring, IDS/IPS detection, log analysis, and threat investigation workflows.
 
-> 🚧 Status: In Progress
 
 ---
 
-# 🧠 Objectives
+# Objectives
 
 - Build a practical SOC monitoring environment
-- Monitor endpoint and network activity
 - Detect malicious behavior and attack patterns
 - Investigate security alerts and suspicious events
 - Practice incident response and threat analysis workflows
@@ -22,7 +20,7 @@ The lab focuses on detecting, analyzing, and investigating malicious activity ac
 
 ---
 
-# 🏗️ Lab Architecture
+#  Lab Architecture
 
 ```text
                  ┌──────────────────────┐
@@ -30,14 +28,6 @@ The lab focuses on detecting, analyzing, and investigating malicious activity ac
                  │ (Kali / Test System) │
                  └──────────┬───────────┘
                             │
-                     Network Traffic
-                            │
-                ┌───────────▼───────────┐
-                │  Suricata IDS/IPS     │
-                │ Network Monitoring    │
-                └───────────┬───────────┘
-                            │
-                     Suricata Logs
                             │
                 ┌───────────▼───────────┐
                 │      Wazuh SIEM       │
@@ -53,12 +43,11 @@ The lab focuses on detecting, analyzing, and investigating malicious activity ac
 ```
 ---
 
-# ⚙️ Technologies & Concepts
+# Technologies & Concepts
 
 - SIEM Monitoring
 - Endpoint Monitoring
-- Network Intrusion Detection
-- IDS/IPS Operations
+- Network analysis
 - Threat Detection
 - Log Analysis
 - Incident Investigation
@@ -69,9 +58,9 @@ The lab focuses on detecting, analyzing, and investigating malicious activity ac
 
 ---
 
-# 🔍 Implemented Use Cases
+#  Implemented Use Cases
 
-## ✅ File Integrity Monitoring (FIM)
+##  File Integrity Monitoring (FIM)
 Monitored critical files and directories for unauthorized modifications and suspicious changes.
 
 🔗 [File Integrity Monitoring Lab Report](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/main/03-Hands%20on%20lab%201-%20File%20Integrity%20Monitoring.md)
@@ -79,60 +68,37 @@ Monitored critical files and directories for unauthorized modifications and susp
 
 ---
 
-## ✅ Network Intrusion Detection & Prevention
-Integrated Suricata as an IDS/IPS solution to detect:
-- Port scanning
-- Brute-force activity
-- Web attack patterns
-- Suspicious network traffic
-- Potential command-and-control communication
-
-🔗 Project Link:  
-
----
-
-## ✅ SSH Brute-Force Detection
+## SSH Brute-Force Detection
 Detected repeated failed authentication attempts and suspicious login behavior.
 
-🔗 Project Link:  
+🔗 [Detecting and Blocking SSH Brute-Force Attacks with Wazuh](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/60baa79113ba277db6b0279798b0d48755d1de15/06-Hands-on-lab%204-Detecting%20and%20Blocking%20SSH%20Brute%20force%20attackes.md)
 
 
 ---
 
-## ✅ Malicious Command Monitoring
+## Malicious Command Monitoring
 Monitored suspicious command execution and PowerShell activity to identify potentially malicious behavior.
 
-🔗 Project Link:  
+🔗 [Detecting Malicious Commands with wazuh](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/71ebf4210dd76243cd9129b2cb7cdf83fdbca561/05-Hands-On%20Lab%203%20%E2%80%93%20Detecting%20The%20Execution%20of%20Malicious%20Commands.md)
 
 
 ---
 
-## ✅ Vulnerability Detection
+##  Vulnerability Detection
 Performed vulnerability identification and monitoring across monitored systems.
 
-🔗 Project Link:  
+🔗 [Vulnerability Detection with Wazuh](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/71ebf4210dd76243cd9129b2cb7cdf83fdbca561/04-Hands%20on%20lab%202-Vulnrebilty%20Detection.md)
 
 ---
 
-## ✅ Malware Analysis Workflows
-Investigated suspicious files and analyzed indicators of compromise using malware analysis workflows and threat intelligence checks.
+##  Detecting Malicious Files with Wazuh & VirusTotal
+Investigated suspicious files using VirusTotal integration within Wazuh to identify malicious file activity, analyze threat intelligence results, and validate malware detection alerts.
 
-🔗 Project Link:  
-
----
-
-# 🚨 Attack Scenarios Simulated
-
-- SSH brute-force attacks
-- Port scanning and reconnaissance
-- Suspicious command execution
-- Malicious file detection
-- Web-based attack activity
-- Unauthorized file modification attempts
+🔗 [Detecting Malicious Files with Wazuh & VirusTotal](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/71ebf4210dd76243cd9129b2cb7cdf83fdbca561/07-Hands-on-lab%205-Detecting%20Malicous%20files%20with%20Virustotal.md)
 
 ---
 
-# 📊 SOC Operations Performed
+#  SOC Operations Performed
 
 - Alert monitoring and triage
 - Log analysis and investigation
@@ -143,7 +109,7 @@ Investigated suspicious files and analyzed indicators of compromise using malwar
 
 ---
 
-# 📈 Skills Demonstrated
+# Skills Demonstrated
 
 - Security Monitoring
 - Threat Detection
@@ -158,7 +124,7 @@ Investigated suspicious files and analyzed indicators of compromise using malwar
 
 ---
 
-# 🚀 Future Improvements
+#  Future Improvements
 
 - Threat intelligence feed integration
 - Automated alert response workflows
@@ -169,6 +135,3 @@ Investigated suspicious files and analyzed indicators of compromise using malwar
 
 ---
 
-# 🧠 Project Goal
-
-This project was created to develop practical SOC analyst and blue team skills through hands-on security monitoring, attack detection, and incident investigation in a controlled lab environment.
