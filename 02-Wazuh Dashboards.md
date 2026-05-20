@@ -2,7 +2,7 @@
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 As part of my SOC Home Lab project using :contentReference[oaicite:0]{index=0}, I created custom dashboards to visualize and analyze security alerts inside the SIEM environment.
 
