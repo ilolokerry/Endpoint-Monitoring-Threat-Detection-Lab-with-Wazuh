@@ -1,9 +1,9 @@
 
-# 🔍 File Integrity Monitoring (FIM) Lab with Wazuh
+# File Integrity Monitoring (FIM) Lab with Wazuh
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 As part of my SOC Home Lab project using :contentReference[oaicite:0]{index=0}, I performed a hands-on File Integrity Monitoring (FIM) lab to detect file system changes on a monitored Linux endpoint.
 
@@ -11,7 +11,7 @@ The objective of this lab was to configure real-time file monitoring, generate f
 
 ---
 
-# 🎯 Lab Objectives
+#  Lab Objectives
 
 This lab was designed to:
 
