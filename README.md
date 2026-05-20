@@ -1,7 +1,7 @@
 
 # SOC Lab – Endpoint Monitoring & Threat Detection with Wazuh
 
-## 📌 Project Overview
+##  Project Overview
 
 This project is a hands-on SOC (Security Operations Center) lab designed to simulate real-world security monitoring and threat detection operations using endpoint and network telemetry.
 
