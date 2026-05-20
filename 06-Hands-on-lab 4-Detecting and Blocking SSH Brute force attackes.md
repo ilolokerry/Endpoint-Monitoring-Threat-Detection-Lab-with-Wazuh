@@ -85,7 +85,8 @@ sudo nano /var/ossec/etc/ossec.conf
   <timeout>180</timeout>
 </active-response>
 ```
-This configuration uses the `firewall-drop` active response to automatically block IP addresses for 180 seconds whenever Wazuh Rule `5763` detects an SSH brute-force attack on the monitored system.
+---
+ This configuration uses the firewall-drop script  to automatically block IP addresses for 180 seconds whenever Wazuh Rule 5763 detects an SSH brute-force attack on the monitored system.
 ---
 
  Restart Wazuh Manager
@@ -144,7 +145,6 @@ Repeated failed SSH authentication attempts were generated using Hydra against t
 sudo hydra -t 4 -l <user> -P PASSWD_LIST.txt <victim_IP> ssh
 ```
 ![bfa](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/e17a2af450a953258c9cd715641041aa79233f24/images/bfa/bfa.png)
-attack command
 
 ---
 
@@ -157,7 +157,7 @@ The Wazuh dashboard was monitored to confirm:
 - Automatic firewall blocking
 
 ![alerts](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/e17a2af450a953258c9cd715641041aa79233f24/images/bfa/alert.png)
-![details]()
+![details](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/13de6b8364b83dbd1d2527404aaad6f9ed3dd3ae/images/bfa/det.png)
 ---
 #  Observations
 
@@ -169,7 +169,7 @@ The lab successfully demonstrated how Wazuh can:
 
 ---
 
-# 🧠 Skills Practiced
+#  Skills Practiced
 
 - SSH monitoring
 - Wazuh Active Response configuration
@@ -180,11 +180,3 @@ The lab successfully demonstrated how Wazuh can:
 - SOC incident response workflows
 
 ---
-
-# 🚀 Next Steps
-
-- Configure email alerting for brute-force attacks
-- Create dashboards for blocked IP activity
-- Integrate GeoIP threat intelligence
-- Add Suricata network-based SSH detection
-- Correlate SSH attacks with endpoint telemetry
