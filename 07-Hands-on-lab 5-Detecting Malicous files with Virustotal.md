@@ -15,7 +15,7 @@ The lab focused on:
 
 ---
 
-# 🧠 What is VirusTotal?
+#  What is VirusTotal?
 
 Virustotal is an online threat intelligence and malware analysis platform 
 
@@ -23,7 +23,7 @@ It analyzes files, URLs, domains, and IP addresses using multiple antivirus engi
 
 ---
 
- ⚙️ VirusTotal Capabilities
+ VirusTotal Capabilities
 
 -  Malware file scanning
 -  URL and domain reputation analysis
