@@ -1,9 +1,9 @@
 
-# 🛡️ Hands-On Lab 4 – Detecting and Blocking SSH Brute-Force Attacks with Wazuh
+#  Hands-On Lab 4 – Detecting and Blocking SSH Brute-Force Attacks with Wazuh
 
 ---
 
-# 📌 Overview
+#  Overview
 
 This hands-on lab demonstrates how Wazuh can detect and automatically respond to SSH brute-force attack activity using Active Response.
 
