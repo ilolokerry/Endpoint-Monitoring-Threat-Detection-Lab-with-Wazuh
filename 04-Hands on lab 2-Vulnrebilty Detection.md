@@ -1,9 +1,9 @@
 
-# 🛡️ Hands-On Lab 2 – Vulnerability Detection with Wazuh
+#  Hands-On Lab 2 – Vulnerability Detection with Wazuh
 
 ---
 
-## 📌 Overview
+##  Overview
 
 This hands-on lab demonstrates how Wazuh can be used for vulnerability detection and management across monitored endpoints.
 
