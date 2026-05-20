@@ -1,9 +1,9 @@
 
-# 🛡️ Hands-On Lab 5 – Detecting Malicious Files with Wazuh & VirusTotal
+#  Hands-On Lab 5 – Detecting Malicious Files with Wazuh & VirusTotal
 
 ---
 
-# 📌 Overview
+#  Overview
 
 This hands-on lab demonstrates how Wazuh can integrate with Virustotal to detect malicious files on monitored Linux endpoints.
 
