@@ -11,7 +11,7 @@ It functions as a Security Information and Event Management (SIEM) solution that
 
 ---
 
-## ⚙️ Key Capabilities of Wazuh
+##  Key Capabilities of Wazuh
 
 Wazuh provides the following security capabilities:
 
@@ -40,7 +40,7 @@ Goal: build practical SOC analyst skills using real infrastructure and attack si
 
 ---
 
-# 🧱 Lab Architecture
+#  Lab Architecture
 All systems are virtual machines deployed inside VMware Workstation.
 ---
 
@@ -55,7 +55,7 @@ The environment consists of:
 
 ---
 
-# 🌐 Step 0 – Network & DHCP Configuration
+# Step 0 – Network & DHCP Configuration
 
 Before setting up the lab machines, the network was configured for proper IP allocation.
 
@@ -79,7 +79,7 @@ This ensures:
   
 ---
 
-# ⚙️ Step 1 – Install Kali Linux
+#  Step 1 – Install Kali Linux
 
 Kali Linux is used for attack simulation and penetration testing.
 
@@ -96,7 +96,7 @@ sudo apt update && sudo apt upgrade -y
 
 ---
 
-# 💀 Step 2 – Install Metasploitable 2
+#  Step 2 – Install Metasploitable 2
 
 Used as a vulnerable target for attack simulation.
 
@@ -109,7 +109,7 @@ https://sourceforge.net/projects/metasploitable/
 
 ---
 
-# 🐧 Step 3 – Install Ubuntu Desktop (Client)
+#  Step 3 – Install Ubuntu Desktop (Client)
 
 Used to access dashboards and monitor alerts.
 
@@ -128,7 +128,7 @@ sudo apt update && sudo apt upgrade -y
 
 ---
 
-# 🪟 Step 4 – Install Windows 10 Pro
+#  Step 4 – Install Windows 10 Pro
 
 Used as a monitored endpoint.
 
@@ -141,7 +141,7 @@ https://www.microsoft.com/software-download/windows10
 
 ---
 
-# 🖥️ Step 5 – Install Wazuh Server
+#  Step 5 – Install Wazuh Server
 
 ## Download Source:
 https://ubuntu.com/download/server
@@ -169,13 +169,10 @@ sudo systemctl status wazuh-manager
 ```
 ![system check](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/wazuh%20server%20check.png)
 
-📸 Screenshot Placeholder:
-- Installation complete
-- Service running
 
 ---
 
-# 🌐 Step 6 – Access Wazuh Dashboard
+# Step 6 – Access Wazuh Dashboard
 
 ```
 https://<WAZUH-SERVER-IP>
@@ -188,7 +185,7 @@ Login:
 
 ---
 
-# 🐧 Step 7 – Ubuntu Agent Enrollment
+#  Step 7 – Ubuntu Agent Enrollment
 
 ## Install agent
 ![agentdeploymenttab](https://github.com/ilolokerry/Endpoint-Monitoring-Threat-Detection-Lab-with-Wazuh/blob/1c126bd119911b2d4d84844c6fdea27e62eb4728/images/wazuh/agent%20deployment%20tab.png)
@@ -212,7 +209,7 @@ sudo systemctl start wazuh-agent
 
 ---
 
-# 🪟 Step 8 – Windows Agent Enrollment
+#  Step 8 – Windows Agent Enrollment
 
 ## Install agent (PowerShell as Admin)
 
@@ -232,7 +229,7 @@ net start wazuh
 
 ---
 
-# 📊 Final Summary
+#  Final Summary
 
 This SOC lab simulates:
 
